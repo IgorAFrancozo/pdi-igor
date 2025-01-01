@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public enum Objetivo {
     MANUTENCAO("Manutenção do peso"),
-    CUTTING("Cutting (Perda de peso)"),
-    BULKING("Bulking (Ganho de peso)");
+    CUTTING("Cutting (Redução do peso)"),
+    BULKING("Bulking (Aumento do peso)");
 
     private final String descricao;
 
