@@ -9,25 +9,25 @@ import org.springframework.stereotype.Component;
 public class MacronutrientesMapper implements IMacronutrientesMapper {
 
     @Override
-    public Macronutrientes toEntity(MacronutrientesCalculadosDTO dto) {
+    public Macronutrientes paraEntidade(MacronutrientesCalculadosDTO macronutrientesCalculadosDTO) {
         return new Macronutrientes(
-                null, // ID será gerado pelo banco
-                dto.getCalorias(),
-                dto.getProteinas(),
-                dto.getCarboidratos(),
-                dto.getGorduras(),
-                dto.getObjetivo()
+                null,
+                macronutrientesCalculadosDTO.getCalorias(),
+                macronutrientesCalculadosDTO.getProteinas(),
+                macronutrientesCalculadosDTO.getCarboidratos(),
+                macronutrientesCalculadosDTO.getGorduras(),
+                macronutrientesCalculadosDTO.getObjetivo()
         );
     }
 
     @Override
-    public MacronutrientesResponseDTO toResponse(Macronutrientes entity) {
+    public MacronutrientesResponseDTO paraResponse(Macronutrientes macronutrientes) {
         return new MacronutrientesResponseDTO(
-                entity.getCalorias(),
-                entity.getProteinas(),
-                entity.getCarboidratos(),
-                entity.getGorduras(),
-                entity.getObjetivo()
+                macronutrientes.getCalorias(),
+                macronutrientes.getProteinas(),
+                macronutrientes.getCarboidratos(),
+                macronutrientes.getGorduras(),
+                macronutrientes.getObjetivo()
         );
     }
 }

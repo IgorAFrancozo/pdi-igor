@@ -3,9 +3,7 @@ package br.com.digix.pdi_igor.infra.dtos;
 import br.com.digix.pdi_igor.dominio.Genero;
 import br.com.digix.pdi_igor.dominio.NivelAtividade;
 import br.com.digix.pdi_igor.dominio.Objetivo;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter

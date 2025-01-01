@@ -6,7 +6,6 @@ import br.com.digix.pdi_igor.infra.dtos.MacronutrientesCalculadosDTO;
 import br.com.digix.pdi_igor.infra.dtos.MacronutrientesRequestDTO;
 import br.com.digix.pdi_igor.infra.dtos.MacronutrientesResponseDTO;
 import br.com.digix.pdi_igor.infra.mappers.IMacronutrientesMapper;
-import br.com.digix.pdi_igor.infra.mappers.MacronutrientesMapper;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -37,8 +36,8 @@ public class CalculaMacronutrientes {
         MacronutrientesCalculadosDTO calculados = calcularMacronutrientes(calorias, objetivo);
 
         // Mapeamento para entidade e resposta
-        Macronutrientes entidade = mapper.toEntity(calculados);
-        return mapper.toResponse(entidade);
+        Macronutrientes entidade = mapper.paraEntidade(calculados);
+        return mapper.paraResponse(entidade);
     }
 
     private MacronutrientesCalculadosDTO calcularMacronutrientes(double calorias, Objetivo objetivo) {
