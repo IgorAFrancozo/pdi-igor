@@ -3,6 +3,8 @@ package br.com.digix.pdi_igor.infra.dtos;
 import br.com.digix.pdi_igor.dominio.Genero;
 import br.com.digix.pdi_igor.dominio.NivelAtividade;
 import br.com.digix.pdi_igor.dominio.Objetivo;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,5 +30,5 @@ public class MacronutrientesRequestDTO {
     private double percentualDeGordura; // Opcional
 
     @NotNull
-    private Objetivo objetivo; // Incluído no request
+    private Objetivo objetivo; // Usuário precisa passar no request
 }

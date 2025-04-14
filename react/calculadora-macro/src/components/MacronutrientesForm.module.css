@@ -1,0 +1,44 @@
+.container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.inputGroup label {
+    margin-bottom: 0.3rem;
+}
+
+.inputGroup input,
+.inputGroup select {
+    padding: 0.5rem;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.5rem;
+}
+
+.resultCard {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #e1f5fe;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

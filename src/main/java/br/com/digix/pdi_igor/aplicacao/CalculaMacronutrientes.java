@@ -18,30 +18,29 @@ public class CalculaMacronutrientes {
     }
 
     public MacronutrientesResponseDTO calcular(MacronutrientesRequestDTO request, Objetivo objetivo) {
-        double tmb;
+        double taxaMetabolicaBasal;
 
-        // Cálculo da TMB
         if (request.getPercentualDeGordura() > 0) {
             double massaMagra = request.getPeso() - (request.getPeso() * request.getPercentualDeGordura() / 100);
-            tmb = 370 + (21.6 * massaMagra);
+            taxaMetabolicaBasal = 370 + (21.6 * massaMagra);
         } else {
-            tmb = (10 * request.getPeso()) +
+            taxaMetabolicaBasal = (10 * request.getPeso()) +
                     (6.25 * request.getAltura()) -
                     (5 * request.getIdade()) +
                     request.getGenero().getConstanteFormula();
         }
 
-        // Multiplicação pelo fator de atividade
-        double calorias = tmb * request.getNivelAtividade().getFator();
+        double calorias = taxaMetabolicaBasal * request.getNivelAtividade().getFator();
         MacronutrientesCalculadosDTO calculados = calcularMacronutrientes(calorias, objetivo);
 
-        // Mapeamento para entidade e resposta
         Macronutrientes entidade = mapper.paraEntidade(calculados);
         return mapper.paraResponse(entidade);
     }
 
     private MacronutrientesCalculadosDTO calcularMacronutrientes(double calorias, Objetivo objetivo) {
-        double proteinas, gorduras, carboidratos;
+        double proteinas;
+        double gorduras;
+        double carboidratos;
 
         switch (objetivo) {
             case CUTTING -> {

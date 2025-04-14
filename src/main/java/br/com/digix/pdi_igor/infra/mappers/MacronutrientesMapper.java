@@ -11,7 +11,6 @@ public class MacronutrientesMapper implements IMacronutrientesMapper {
     @Override
     public Macronutrientes paraEntidade(MacronutrientesCalculadosDTO macronutrientesCalculadosDTO) {
         return new Macronutrientes(
-                null,
                 macronutrientesCalculadosDTO.getCalorias(),
                 macronutrientesCalculadosDTO.getProteinas(),
                 macronutrientesCalculadosDTO.getCarboidratos(),

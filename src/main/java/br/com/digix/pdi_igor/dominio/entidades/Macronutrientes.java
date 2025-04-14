@@ -14,16 +14,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class Macronutrientes {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private double calorias;
     private double proteinas;
     private double carboidratos;
     private double gorduras;
-
     private Objetivo objetivo;
 }
