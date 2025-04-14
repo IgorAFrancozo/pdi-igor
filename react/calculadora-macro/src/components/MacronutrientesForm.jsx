@@ -1,5 +1,4 @@
 import {useState} from "react";
-import styles from './MacronutrientesForm.module.css';
 import api from "../services/api.js";
 
 function MacronutrientesForm() {
@@ -10,7 +9,7 @@ function MacronutrientesForm() {
         genero: 'MASCULINO',
         objetivo: 'CUTTING',
         percentualDeGordura: '',
-        nivelAtividade: 'MODERADO',
+        nivelAtividade: 'SEDENTARIO',
     });
 
     const [resultado, setResultado] = useState(null);
@@ -37,7 +36,7 @@ function MacronutrientesForm() {
             genero: 'MASCULINO',
             objetivo: 'CUTTING',
             percentualDeGordura: '',
-            nivelAtividade: 'MODERADO',
+            nivelAtividade: 'SEDENTARIO',
         });
         setResultado(null);
     };
@@ -56,8 +55,7 @@ function MacronutrientesForm() {
                         value={form.peso}
                         onChange={handleChange}
                         required
-                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"
-                    />
+                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"/>
                     <input
                         type="number"
                         name="altura"
@@ -65,8 +63,7 @@ function MacronutrientesForm() {
                         value={form.altura}
                         onChange={handleChange}
                         required
-                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"
-                    />
+                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"/>
                     <input
                         type="number"
                         name="idade"
@@ -74,22 +71,19 @@ function MacronutrientesForm() {
                         value={form.idade}
                         onChange={handleChange}
                         required
-                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"
-                    />
+                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"/>
                     <input
                         type="number"
                         name="percentualDeGordura"
                         placeholder="% Gordura (opcional)"
                         value={form.percentualDeGordura}
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"
-                    />
+                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"/>
                     <select
                         name="genero"
                         value={form.genero}
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"
-                    >
+                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700">
                         <option value="MASCULINO">Masculino</option>
                         <option value="FEMININO">Feminino</option>
                     </select>
@@ -97,8 +91,7 @@ function MacronutrientesForm() {
                         name="objetivo"
                         value={form.objetivo}
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700"
-                    >
+                        className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-50 dark:bg-gray-700">
                         <option value="CUTTING">Cutting</option>
                         <option value="BULKING">Bulking</option>
                         <option value="MANUTENCAO">Manutenção</option>
@@ -131,30 +124,30 @@ function MacronutrientesForm() {
 
                 {resultado && (
                     <div
-                        className="mt-6 p-6 rounded-2xl bg-blue-100 dark:bg-blue-900 shadow-lg border border-blue-300 dark:border-blue-700 transition-colors duration-300">
-                        <h4 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">
-                            Resultado:
+                        className="mt-6 p-6 rounded-2xl bg-blue-100 dark:bg-blue-700 shadow-lg border border-blue-300 dark:border-blue-700 transition-colors duration-300">
+                        <h4 className="text-xl font-bold text-blue-900 dark:text-white mb-2">
+                            Resultado
                         </h4>
                         <div className="space-y-2 text-base text-blue-800 dark:text-blue-100">
                             <p>
                                 <span className="font-medium">Gasto Calórico: </span>{' '}
-                                <span className="text-lg font-bold text-blue-900 dark:text-orange-200">
-        {resultado.calorias.toFixed(2)} kcal </span>
+                                <span className="text-lg font-bold text-blue-900 dark:text-orange-300"> {resultado.calorias.toFixed(2)} kcal </span>
+                            </p>
+                            <p>
+                                <br/>
+                                <span className="text-xl font-bold text-blue-900 dark:text-white">Macronutrientes </span>{' '}
                             </p>
                             <p>
                                 <span className="font-medium">Proteínas: </span>{' '}
-                                <span className="text-lg font-bold text-green-600 dark:text-green-300">
-        {resultado.proteinas.toFixed(2)} g </span>
+                                <span className="text-lg font-bold text-green-500 dark:text-green-300"> {resultado.proteinas.toFixed(2)} g </span>
                             </p>
                             <p>
                                 <span className="font-medium">Carboidratos: </span>{' '}
-                                <span className="text-lg font-bold text-yellow-600 dark:text-yellow-300">
-        {resultado.carboidratos.toFixed(2)} g </span>
+                                <span className="text-lg font-bold text-yellow-300 dark:text-yellow-300"> {resultado.carboidratos.toFixed(2)} g </span>
                             </p>
                             <p>
                                 <span className="font-medium">Gorduras: </span>{' '}
-                                <span className="text-lg font-bold text-red-600 dark:text-red-400">
-        {resultado.gorduras.toFixed(2)} g </span>
+                                <span className="text-lg font-bold text-red-700 dark:text-red-400"> {resultado.gorduras.toFixed(2)} g </span>
                             </p>
                         </div>
                     </div>
